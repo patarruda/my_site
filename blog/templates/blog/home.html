@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{%load static %}
+
+{% block page_title %}{{ blog_owner }}'s Blog{% endblock %}
+
+{% block css_files %}
+    <link rel="stylesheet" href="{% static 'blog/styles.css' %}">
+    <link rel="stylesheet" href="{% static 'blog/header.css' %}">
+{% endblock %}
+{% block content %}
+    {% include 'blog/includes/header.html' with blog_owner=blog_owner %}
+
+    <section id="welcome">
+        
+
+        <div class="welcome-content">
+            <img
+                src="{% static 'blog/blog_owner_image.png' %}"
+                alt="{{ blog_owner }}" 
+                class="blog-owner-image"
+            >
+
+            <h1>{{ blog_owner }}'s<br>Blog</h1>
+        </div>
+
+        <p>Hi, I am {{ blog_owner }}! {{ presentation }}</p>
+    </section>
+
+    <section id="latest-posts">
+        <h2>My Latest Thoughts</h2>
+
+        <ul>
+            {% for post in latest_posts %}
+                <li>
+                    <article class="post">
+                        <!-- to slugify the title, we can use the slugify filter -->
+                        <a href="{% url 'blog:post_detail' post_slug=post.title|slugify %}">
+                            <img src="{{ post.image_url }}" alt="{{ post.title }}" class="post-image">
+                            <h3>{{ post.title }}</h3>
+                            <p>{{ post.content.0|truncatechars:100 }}</p>
+                        </a>
+                    </article>
+                </li>
+            {% empty %}
+                <li>No posts available.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+   
+{% endblock %}

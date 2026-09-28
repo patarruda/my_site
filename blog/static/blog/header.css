@@ -1,0 +1,38 @@
+nav {
+    padding: 1.5rem 10%;
+    background-color: #3b00c4;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+
+    max-width: 70rem;
+    margin: 0 auto;
+    padding: 0;
+
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.nav-home {
+    margin-right: auto;
+}
+
+.nav-home a {
+    font-size: 1.5rem;
+}
+
+.nav-item a {
+    font-size: 1rem;
+}
+
+nav a:hover,
+nav a:active {
+    color: #d8ccff;
+}

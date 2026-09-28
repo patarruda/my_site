@@ -1,0 +1,129 @@
+/* =========================
+   POSTS PAGE
+   ========================= */
+
+h2 {
+    margin: 2.5rem 0 2rem;
+
+    text-align: center;
+    font-size: 2rem;
+}
+
+
+/* =========================
+   POSTS CONTAINER
+   ========================= */
+
+.posts-container {
+    width: 90%;
+    max-width: 60rem;
+
+    margin: 0 auto 4rem;
+    padding: 0;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+
+    list-style: none;
+}
+
+
+/* =========================
+   POST CARD
+   ========================= */
+
+.post {
+    height: 100%;
+    min-height: 18rem;
+    padding: 1.5rem;
+
+    background-color: white;
+    border-radius: 10px;
+
+    text-align: center;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+
+    transition:
+        transform 0.2s ease,
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.post:hover {
+    background-color: #3b00c4;
+    color: white;
+
+    transform: translateY(-4px);
+}
+
+
+/* =========================
+   POST LINK
+   ========================= */
+
+.post a {
+    display: block;
+    height: 100%;
+
+    color: inherit;
+    text-decoration: none;
+}
+
+.post a:hover,
+.post a:active {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+/* =========================
+   POST IMAGE
+   ========================= */
+
+.post-image {
+    width: 6rem;
+    height: 6rem;
+
+    margin-bottom: 1rem;
+
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+
+/* =========================
+   POST CONTENT
+   ========================= */
+
+.post h3 {
+    margin: 0 0 1rem;
+
+    font-size: 1.2rem;
+}
+
+.post p {
+    margin: 0;
+
+    color: #555;
+    line-height: 1.4;
+
+    transition: color 0.2s ease;
+}
+
+.post:hover p {
+    color: white;
+}
+
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+    .posts-container {
+        grid-template-columns: 1fr;
+        max-width: 25rem;
+    }
+}

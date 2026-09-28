@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block page_title %} Posts - {{ blog_owner }}'s Blog {% endblock %}
+
+{% block css_files%}
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/posts.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/header.css' %}">
+{% endblock %}
+
+{% block content %}
+{% include 'blog/includes/header.html' with blog_owner=blog_owner %}
+
+    <h2>My Collected Posts</h2>
+    <ul class="posts-container">
+        {% for post in posts %}
+            <li>
+                <article class="post">
+                    <a href="{% url 'blog:post_detail' post_slug=post.title|slugify %}">
+                        <img src="{{ post.image_url }}" alt="{{ post.title }}" class="post-image">
+                        <h3>{{ post.title }}</h3>
+                        <p>{{ post.content.0|truncatechars:100 }}</p>
+                    </a>
+                </article>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
